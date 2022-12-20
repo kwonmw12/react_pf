@@ -31,7 +31,7 @@ function Header(props){
   useEffect(() => {    
     const timer = setInterval(() => {
       window.addEventListener("scroll", handleScroll);
-    }, 100); // 성능화개선
+    }, 100); // 성능화개선, 0.1초(분기점)마다 위 스크롤을 감지할게!(0.1초마다 새로고침되는것)
     return () => {
       clearInterval(timer); //setInterval 지우기
       window.removeEventListener("scroll", handleScroll); // scroll 이벤트 지우기
@@ -53,9 +53,11 @@ function Header(props){
             menuToggleSet(!menuToggle);
             const  gnbulclass =  menuToggle ?  'mobileGnb': 'pcGnb';   
             console.log(gnbulclass)
-          }} >햄버거</button>          
+          }} >햄버거</button> 
+
+
          
-          <Navi  />
+          { menuToggle ? <Navi  /> : null}
         </header>
     )
   }

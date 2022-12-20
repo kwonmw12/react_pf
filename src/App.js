@@ -28,42 +28,55 @@ const Worksswiper = () => {
           worktime : '4주',
           co : '단독작업',
           app : ['illust','photoshop','v-code'],
-          cls : 'react'
+          cls : 'react',
+          bg : 'grey'
         },
         {
           worktitle : '부트스트랩 퍼블리싱',
           worktime : '1주',
           co : '단독작업',
           app : ['v-code'],
-          cls : 'boot'
+          cls : 'boot',
+          bg : 'yellow'
+        },
+        {
+          worktitle : '부트스트랩 퍼블리싱',
+          worktime : '1주',
+          co : '단독작업',
+          app : ['v-code'],
+          cls : 'boot',
+          bg : 'pink'
         },
         {
           worktitle : 'CMS 그누보드',
           worktime : '4주',
           co : '단독작업',
           app : ['illust','photoshop','v-code'],
-          cls : 'sir'
+          cls : 'sir',
+          bg : 'green'
         }];
     return(
       <Swiper className='workSection'
       modules={[Navigation, Pagination, Scrollbar, A11y, Autoplay]}
       spaceBetween={0}
-      slidesPerView={1}
-      
+      slidesPerView={1.5}
+      centeredSlides={true}
       autoplay={{
-        delay: 4000,
+        delay: 3000,
         disableOnInteraction: false,
       }}
- 
+      loop = {true}
       pagination={{ clickable: true }}
       scrollbar={{ draggable: true }}
+      
+      // -------여기서부터는 슬라이드가 꺼지고 터질일---------
       // onSlideChange={() => console.log('slide change')}
       // onSwiper={(swiper) => console.log(swiper)}
        >
         {
           swiperinfo.map( ( item, index ) => {
                  return(
-                  <SwiperSlide className={item.cls} key={'sw'+index}>{item.worktitle}</SwiperSlide>
+                  <SwiperSlide className={item.cls} key={'sw'+index} style={{background : item.bg}}>{item.worktitle}</SwiperSlide>
                  )
             }
           )
